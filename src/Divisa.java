@@ -1,5 +1,3 @@
-public record Divisa(String base_code,
-                     double conversion_rates,
-                     String target_code) {
+import java.util.Map;
 
-}
+public record Divisa(String base_code, Map<String, Double> conversion_rates) {}
