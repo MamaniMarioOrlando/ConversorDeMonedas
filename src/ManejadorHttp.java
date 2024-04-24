@@ -16,8 +16,6 @@ public class ManejadorHttp {
         // direccion URL de la API, concatenanado la
         // Key y codigo de la divisa .
         URI direccion = URI.create("https://v6.exchangerate-api.com/v6/"+contrasenia+"/latest/"+base_code);
-
-
         //Creacion de la variable Client de tipo HttpClient,
         // se utiliza para hacer la consulta a la API.
         HttpClient cliente = HttpClient.newHttpClient();
@@ -26,7 +24,6 @@ public class ManejadorHttp {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(direccion)
                 .build();
-
             // Objeto HttpResponse utilizado para enviar la solicitud HTTP y
             // espera una respuesta que se almacena el la variable response
         try {
@@ -36,7 +33,6 @@ public class ManejadorHttp {
             // JSON de la Api en un objero de la clase Sivisa.
             // Convierte la respuesta JSON en un objeto Divisa utilizando Gson
             Divisa divisa = new Gson().fromJson(response.body(), Divisa.class);
-
             return divisa;
         } catch (Exception e) {
             // Manejo de excepciones
